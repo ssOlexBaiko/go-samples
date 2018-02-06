@@ -17,6 +17,9 @@ func main() {
 	// When creating constants with regular expressions you can use the MustCompile variation of Compile.
 	// A plain Compile won’t work for constants because it has 2 return values.
 	// MustCompile is like Compile but <PANICs> if the expression cannot be parsed
+	// TODO:
+	// it's preferable to use regexp constant (via MustCompile) 'cause Compile() is expensive
+	// and better to use it in compiling stage, not on the function call
 	re, err := regexp.Compile(*expr)
 	if err != nil {
 		fmt.Println(err)
